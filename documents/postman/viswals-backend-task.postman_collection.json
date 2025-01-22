@@ -1,0 +1,58 @@
+{
+	"info": {
+		"_postman_id": "262fe7e7-e02e-4f46-9d78-12bf672a22b6",
+		"name": "viswals-backend-task",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "36163066"
+	},
+	"item": [
+		{
+			"name": "Get all users",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{hostname}}/users?page=0&page_size=10000&id:min=500&id:max=2000&sort=id:DESC",
+					"host": [
+						"{{hostname}}"
+					],
+					"path": [
+						"users"
+					],
+					"query": [
+						{
+							"key": "page",
+							"value": "0"
+						},
+						{
+							"key": "page_size",
+							"value": "10000"
+						},
+						{
+							"key": "id:min",
+							"value": "500"
+						},
+						{
+							"key": "id:max",
+							"value": "2000"
+						},
+						{
+							"key": "sort",
+							"value": "id:DESC"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get user by id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "{{hostname}}/users/{{user_id}}"
+			},
+			"response": []
+		}
+	]
+}

@@ -2,6 +2,7 @@ package models
 
 import "time"
 
+// User represents a users table in the postgresql database.
 type User struct {
 	Id           int64      `json:"id" db:"id"`
 	Email        string     `json:"email" db:"email"`

@@ -29,8 +29,8 @@ const (
 	connectAttempts = 15
 )
 
-// NewPostgres creates a new Postgres instance
-func NewPostgres(cfg *DbConfig) (Postgres, error) {
+// New creates a new Postgres instance
+func New(cfg *DbConfig) (Postgres, error) {
 	var (
 		db        *sql.DB
 		migration *migrate.Migrate

@@ -10,6 +10,7 @@ import (
 	"github.com/viswals/core/infrastructure/rabbitmq"
 )
 
+// ILogger interface defines the methods for application level logging.
 type ILogger interface {
 	Debug(message string, args ...zap.Field)
 	Info(message string, args ...zap.Field)
@@ -26,7 +27,7 @@ type ICacheService interface {
 	Exists(ctx context.Context, key string) (bool, error)
 }
 
-// IEncryptionService is the interface for encryption and hashing.
+// IEncryptionService interface defines methods for encryption and hashing.
 type IEncryptionService interface {
 	Encrypt(data string) (string, error)
 	Decrypt(data string) (string, error)
@@ -34,6 +35,7 @@ type IEncryptionService interface {
 	CompareHash(data, hash string) (bool, error)
 }
 
+// IQueryService interface defines the methods related to rabbitmq or any queue level implementations.
 type IQueueService interface {
 	ConsumeWithContext(ctx context.Context, queue string, options ...rabbitmq.ConsumeOption) (<-chan amqp.Delivery, error)
 	PublishWithContext(ctx context.Context, options ...rabbitmq.PublishOption) error

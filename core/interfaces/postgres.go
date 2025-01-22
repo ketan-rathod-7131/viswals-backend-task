@@ -7,6 +7,7 @@ import (
 	"github.com/jmoiron/sqlx"
 )
 
+// ISqlDatabase interface defines the methods related to sqlx.DB or any equivalent database wrapper.
 type ISqlDatabase interface {
 	// Methods from sqlx.DB
 	sqlx.Execer

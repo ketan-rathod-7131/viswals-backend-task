@@ -11,7 +11,7 @@ import (
 	"golang.org/x/crypto/bcrypt"
 )
 
-// Factory function to create an EncryptionManager based on the strategy.
+// New creates a new encryption instance, which can be used to encrypt or decrypt UTF-8 encoded messages.
 func New(key []byte) (*Encryption, error) {
 
 	if len(key) == 0 {

@@ -55,7 +55,7 @@ func main() {
 	}
 	logger.Info("Queue declared", zap.Any("queue", queue))
 
-	postgresDB, err := postgres.NewPostgres(config.DBConfig)
+	postgresDB, err := postgres.New(config.DBConfig)
 	if err != nil {
 		logger.Fatal("failed to initialize postgres", zap.Error(err))
 	}
