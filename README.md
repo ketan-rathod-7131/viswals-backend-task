@@ -42,7 +42,7 @@ This is a monorepo project that implements a producer-consumer architecture. The
 ## API Documentation
 
 1. Get List of Users
-- Endpoint: GET /users?page=1&page_size=2
+- Endpoint: GET /users?page=0&page_size=100&id:min=500&id:max=2000&sort=id:DESC
 - Query Parameters:
     - page (optional, default: 0): The page number for pagination.
     - page_size (optional, default: 25): The number of users to fetch per page.
@@ -106,7 +106,7 @@ This is a monorepo project that implements a producer-consumer architecture. The
     - docker-compose up --build
 4. Access APIs:
 - Get All Users: localhost:8080/users?page=0&page_size=100&id:min=500&id:max=2000&sort=id:ASC
-- Get User By Id : http://localhost:8080/users/<user id>
+- Get User By Id : http://localhost:8080/users/:userId
 
 ## How to Debug Producer & Consumer Manually
 
@@ -126,4 +126,4 @@ This is a monorepo project that implements a producer-consumer architecture. The
 
 - Write test cases for remaining services.
 - Add HTML page to showcase SSE.
-- Optimize consumer service for consuming rabbitmq messages and add proper caching layer.
+- Optimize consumer service for consuming rabbitmq messages and optimize caching layer.
