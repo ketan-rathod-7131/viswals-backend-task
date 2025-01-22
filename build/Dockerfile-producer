@@ -1,0 +1,23 @@
+FROM golang:1.23 AS build-env
+
+WORKDIR /dockerdev
+
+# copy source files
+COPY ./core ./core
+COPY ./producer ./producer
+
+# build the binary
+WORKDIR /dockerdev/producer
+RUN GOOS=linux GOARCH=amd64 CGO_ENABLED=0 go build -gcflags="all=-N -l" -o /server
+
+# final stage
+FROM alpine:latest
+
+EXPOSE 8080
+WORKDIR /
+
+COPY --from=build-env /server /
+
+COPY ./users.csv ./users.csv
+
+CMD ["/server", "--file=./users.csv"]
